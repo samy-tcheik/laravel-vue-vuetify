@@ -11,6 +11,7 @@ import Vuetify from 'vuetify'
 import Vuelidate from 'vuelidate'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
+import VueSweetalert2 from 'vue-sweetalert2'
 
 import VueRouter from 'vue-router'
 
@@ -23,6 +24,7 @@ Vue.use(Vuetify)
 
 Vue.use(Vuelidate)
 
+Vue.use(VueSweetalert2)
 const opts = {
     icons: {
         iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'

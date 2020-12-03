@@ -16,11 +16,13 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
-        
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
       <UserEditForm @refresh="getUsers" :user_id='item.id'></UserEditForm>
+      <v-icon @click="showAlert(item.id)" small>
+        mdi-trash-can
+      </v-icon>
     </template>
   </v-data-table>
 </template>
@@ -60,6 +62,26 @@ import UserEditForm from '../users/UserEditForm.vue'
             if (Response.status === 200) {
                 this.items = Response.data
             }
+        })
+      },
+
+      showAlert(user_id) {
+        this.$swal({
+          icon:'question',
+          text: 'Do you really want to delete this user ?',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm',
+          denyButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            axios.delete('http://localhost/admin/user_destroy/' + user_id)
+            .then(
+                this.$swal('User deleted!', '', 'success')
+                .then((result) => {
+                  this.getUsers()
+                }),
+            )
+          }
         })
       }
     },

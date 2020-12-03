@@ -44,4 +44,11 @@ class UserController extends Controller
         $user->update($request->all());
         $user->syncRoles($request->input('role'));
     }
+
+    //Delete User
+
+    public function destroy($user_id) {
+        $user = User::find($user_id);
+        $user->delete();
+    }
 }
