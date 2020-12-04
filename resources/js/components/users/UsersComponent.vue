@@ -15,10 +15,9 @@
           inset
           vertical
         ></v-divider>
-        <v-spacer></v-spacer>
       </v-toolbar>
     </template>
-    <template v-slot:item.actions="{ item }">
+    <template v-slot:[`item.actions`]="{ item }">
       <UserEditForm @refresh="getUsers" :user_id='item.id'></UserEditForm>
       <v-icon @click="showAlert(item.id)" small>
         mdi-trash-can
