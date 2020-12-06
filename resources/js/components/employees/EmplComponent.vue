@@ -38,7 +38,7 @@ export default {
       { text: 'First Name', value: 'first_name'},
       { text: 'Post', value: 'post'},
       { text: 'Recruitment', value: 'recru'},
-      { text: 'Age', value: 'age'},
+      { text: 'Age', value: 'date_birth'},
       { text: 'Actions', value: 'actions'}
     ],
     employees: [],
