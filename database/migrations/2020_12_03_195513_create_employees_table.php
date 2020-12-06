@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('last_name');
             $table->string('first_name');
+            $table->string('email');
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts');
             $table->date('date_birth');

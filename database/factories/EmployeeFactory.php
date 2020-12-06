@@ -25,6 +25,7 @@ class EmployeeFactory extends Factory
         return [
             'last_name' => $this->faker->lastName(),
             'first_name' => $this->faker->firstNameMale(),
+            'email' => $this->faker->email(),
             'post_id' => $this->faker->numberBetween(1, Post::count()),
             'date_birth' => $this->faker->dateTimeBetween('-30 years','-20 years'),
             'address' => $this->faker->address,

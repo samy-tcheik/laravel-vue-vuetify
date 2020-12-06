@@ -11,11 +11,11 @@
             </v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
-            <EmployeeCreateForm></EmployeeCreateForm>
+            <EmplAddForm @refresh="getEmployees"></EmplAddForm>
           </v-toolbar>
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <EmployeeEditForm @refresh="getEmployees" :employee_id='item.id'></EmployeeEditForm>
+          <EmplEditForm @refresh="getEmployees" :employee_id='item.id'></EmplEditForm>
           <v-icon @click="showAlert(item.id)" small>
             mdi-trash-can
           </v-icon>
@@ -25,7 +25,13 @@
 </template>
 
 <script>
+import EmplAddForm from './EmplAddForm'
+import EmplEditForm from './EmplEditForm'
+
 export default {
+
+  components: { EmplAddForm, EmplEditForm},
+  
   data: () => ({
     headers: [
       { text: 'Last Name', value:'last_name'},

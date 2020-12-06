@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\Employee;
@@ -29,5 +30,7 @@ Route::get('/get_roles', [UserController::class, 'getRoles']);
 -------------------EMPLOYEES ROUTES--------------------------
 */
 Route::get('/employees_get', [EmployeeController::class, 'getEmployees']);
+Route::get('/get_posts', [PostController::class, 'getPosts']);
+Route::post('/store_empl', [EmployeeController::class, 'storeEmpl']);
 
 
