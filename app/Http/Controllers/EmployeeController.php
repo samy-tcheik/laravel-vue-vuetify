@@ -47,4 +47,25 @@ class EmployeeController extends Controller
             'recru' => $request->input('recru'),
         ]);
     }
+
+    public function getEmpl($empl_id) {
+        $employee = Employee::with('post')->where('id', $empl_id)->first()->toArray();
+        return $employee;
+    }
+
+    public function updateEmpl(Request $request, $empl_id) {
+        $updated_empl = Employee::find($empl_id);
+
+        $post = Post::where('name', $request->post)->first();
+
+        $updated_empl->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'post_id' => $post->id,
+            'date_birth' => $request->input('birth'),
+            'address' => $request->input('address'),
+            'recru' => $request->input('recru')
+        ]);
+    }
 }

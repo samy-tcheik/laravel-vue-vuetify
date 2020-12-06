@@ -18,10 +18,12 @@
       </v-toolbar>
     </template>
     <template v-slot:[`item.actions`]="{ item }">
+      <div class="row">
       <UserEditForm @refresh="getUsers" :user_id='item.id'></UserEditForm>
       <v-icon @click="showAlert(item.id)" small>
         mdi-trash-can
       </v-icon>
+      </div>
     </template>
   </v-data-table>
 </template>

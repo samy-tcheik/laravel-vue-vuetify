@@ -32,5 +32,7 @@ Route::get('/get_roles', [UserController::class, 'getRoles']);
 Route::get('/employees_get', [EmployeeController::class, 'getEmployees']);
 Route::get('/get_posts', [PostController::class, 'getPosts']);
 Route::post('/store_empl', [EmployeeController::class, 'storeEmpl']);
+Route::get('/get_empl/{empl_id}', [EmployeeController::class, 'getEmpl']);
+Route::post('/update_empl/{empl_id}', [EmployeeController::class, 'updateEmpl']);
 
 
