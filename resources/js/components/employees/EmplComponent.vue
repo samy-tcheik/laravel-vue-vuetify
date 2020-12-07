@@ -53,7 +53,27 @@ export default {
       .then(Response => {
         this.employees = Response.data
       })
-    }
+    },
+
+    showAlert(employee_id) {
+        this.$swal({
+          icon:'question',
+          text: 'Do you really want to delete this employee ?',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm',
+          denyButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            axios.delete('http://localhost/admin/empl_delete/' + employee_id)
+            .then(
+                this.$swal('Employee deleted!', '', 'success')
+                .then((result) => {
+                  this.getEmployees()
+                }),
+            )
+          }
+        })
+      }
   },
 
   created() {

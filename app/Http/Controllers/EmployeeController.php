@@ -68,4 +68,9 @@ class EmployeeController extends Controller
             'recru' => $request->input('recru')
         ]);
     }
+
+    public function destroyEmpl($empl_id) {
+        $employee = Employee::find($empl_id);
+        $employee->delete();
+    }
 }

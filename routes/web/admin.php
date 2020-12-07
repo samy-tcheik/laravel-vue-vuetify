@@ -34,5 +34,6 @@ Route::get('/get_posts', [PostController::class, 'getPosts']);
 Route::post('/store_empl', [EmployeeController::class, 'storeEmpl']);
 Route::get('/get_empl/{empl_id}', [EmployeeController::class, 'getEmpl']);
 Route::post('/update_empl/{empl_id}', [EmployeeController::class, 'updateEmpl']);
+Route::delete('/empl_delete/{empl_id}', [EmployeeController::class, 'destroyEmpl']);
 
 
